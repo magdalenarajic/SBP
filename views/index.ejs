@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <link rel="stylesheet" href="/styles.css" >
+</head>
+<body>
+    
+  <h1> KINO </h1>
+  <section data-position="add-quote">
+  <form action="/korisnici" method="POST">
+    <h2> Unesi novog korisnika:</h2>
+    <input type="text" placeholder="ime" name="ime">
+    <input type="text" placeholder="prezime" name="prezime">
+    <input type="text" placeholder="email" name="email">
+    <input type="text" placeholder="lozinka" name="lozinka">
+    <button type="submit">Potvrdi</button>
+  </form>
+</section>
+
+  <section data-position="quotes">
+  <h2> Filmovi </h2>
+
+<ul class="film">
+  <% for(var i = 0; i < film.length; i++) {%>
+    <li class="film">
+    
+      <span><b>Naziv filma: </b><%= film[i].nazivfilma %></span> -
+      <span><b>Trajanje filma: </b><%= film[i].trajanjefilma %></span>:
+      <span> <b> Datum filma: </b> <%= film[i].filmdatum %></span>:
+      <span> <b>Direktor filma: </b> <%=film[i].filmdirektor %></span>
+      <span> <b> Glumac: </b><%= film[i].glumac %></span>:
+      <span><b> Vrsta filma: </b><%= film[i].vrsta %></span>
+
+
+    </li>
+  <% } %>
+</ul>
+</section>
+
+<section data-position="update-quote">
+    <div>
+      <h2>Darth Vadar invades!</h2>
+      <p>
+        Replace first Yoda's quote with a quote written by Darth Vadar
+      </p>
+      <button id="update-button">Replace Yoda's quote</button>
+    </div>
+  </section>
+
+  <section data-position="delete-quote">
+    <div>
+      <h2>Izbrisi film!</h2>
+      <p>
+        Unesi naziv filma koji zelis izbrisati:
+      </p>
+      <input type="text" placeholder="naziv" name="naziv">
+      <button id="delete-button">Izbrisi film</button>
+    </div>
+    <div id="message"></div>
+  </section>
+</body>
+</html>
